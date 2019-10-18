@@ -7,9 +7,6 @@ metadata:
     app: slow-api
 spec:
   replicas: 1
-  selector:
-    matchLabels:
-      app: slow-api
   template:
     metadata:
       labels:
