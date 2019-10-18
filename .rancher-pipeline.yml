@@ -9,6 +9,6 @@ stages:
 - name: deploy
   steps:
   - applyYamlConfig:
-      path: ./.rancher-deployment.yaml
+      path: ./.rancher-deployment.yml
 timeout: 60
 notification: {}
