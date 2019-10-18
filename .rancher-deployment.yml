@@ -1,19 +1,7 @@
-kind: Service
-apiVersion: v1
-metadata:
-  name: slow-api
-spec:
-  selector:
-    app: slow-api
-  type: NodePort
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 80
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  namespace: test
   name: slow-api
   labels:
     app: slow-api
