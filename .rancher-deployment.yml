@@ -1,0 +1,36 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: slow-api
+spec:
+  selector:
+    app: slow-api
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: slow-api
+  labels:
+    app: slow-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: slow-api
+  template:
+    metadata:
+      labels:
+        app: slow-api
+    spec:
+      imagePullSecrets:
+      - name: pipeline-docker-registry
+      containers:
+      - name: slow-api
+        image: ${CICD_IMAGE}
+        ports:
+        - containerPort: 80
