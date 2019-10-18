@@ -11,10 +11,9 @@ function fibonacci(n) {
 
 function fibonacciService(req, res) {
   const n = req.params.n || '0'
-  if (!_.isInteger(n)) throw new Error('invalid input')
-
   const number = _.toNumber(n)
-  if (number < 0) throw new Error('invalid input')
+  if (!_.isInteger(number) || number < 0) throw new Error('invalid input')
+
   const fibN = fibonacci(number)
   res.send({ n, number, fibN })
 }
