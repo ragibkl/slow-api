@@ -19,7 +19,7 @@
   "homepage": "https://github.com/ragibkl/slow-api#readme",
   "dependencies": {
     "express": "^4.17.3",
-    "lodash": "^4.17.19"
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "nodemon": "^1.19.4"
